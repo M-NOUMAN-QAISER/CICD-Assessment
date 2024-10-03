@@ -47,15 +47,16 @@ pipeline {
     }
 
     post {
-        success {
-            emailext subject: "Pipeline Success",
-                     body: "The pipeline has completed successfully.",
-                     to: "m.nouman.qaiser0@gmail.com"
-        }
-        failure {
-            emailext subject: "Pipeline Failed",
-                     body: "The pipeline has failed. Please check the logs for details.",
-                     to: "m.nouman.qaiser0@gmail.com"
-        }
+    success {
+        emailext subject: "Pipeline Success",
+                 body: "The pipeline has completed successfully.",
+                 to: "m.nouman.qaiser0@gmail.com"
     }
+    failure {
+        emailext subject: "Pipeline Failed",
+                 body: "The pipeline has failed. Please check the logs for details.",
+                 to: "m.nouman.qaiser0@gmail.com"
+    }
+}
+
 }
