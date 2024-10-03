@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the code...'
-                // For example: sh 'mvn clean install' for Maven builds
+                // Example: sh 'mvn clean install' for Maven builds
             }
         }
         stage('Unit and Integration Tests') {
@@ -45,10 +45,19 @@ pipeline {
             }
         }
     }
+    
+    // Notifications after pipeline completion
     post {
+        success {
+            emailext subject: "Pipeline Success",
+                     body: "The pipeline has completed successfully.",
+                     to: "m.nouman.qaiser0@gmail.com"
+        }
+        failure {
+            emailext subject: "Pipeline Failed",
+                     body: "The pipeline has failed. Please check the logs for details.",
+                     to: "m.nouman.qaiser0@gmail.com"
+        }
         always {
             echo 'Notifying developers...'
-            // Send email notification after pipeline finishes
-        }
-    }
-}
+            // The echo statement can stay here
