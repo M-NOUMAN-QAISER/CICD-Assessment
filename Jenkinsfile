@@ -45,8 +45,7 @@ pipeline {
             }
         }
     }
-    
-    // Notifications after pipeline completion
+
     post {
         success {
             emailext subject: "Pipeline Success",
@@ -58,6 +57,5 @@ pipeline {
                      body: "The pipeline has failed. Please check the logs for details.",
                      to: "m.nouman.qaiser0@gmail.com"
         }
-        always {
-            echo 'Notifying developers...'
-            // The echo statement can stay here
+    }
+}
