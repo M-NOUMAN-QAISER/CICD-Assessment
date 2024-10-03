@@ -46,13 +46,15 @@ pipeline {
         }
     }
 
-    post {
+   post {
     success {
+        sleep 5 // Delay of 5 seconds
         emailext subject: "Pipeline Success",
                  body: "The pipeline has completed successfully.",
                  to: "m.nouman.qaiser0@gmail.com"
     }
     failure {
+        sleep 5 // Delay of 5 seconds
         emailext subject: "Pipeline Failed",
                  body: "The pipeline has failed. Please check the logs for details.",
                  to: "m.nouman.qaiser0@gmail.com"
