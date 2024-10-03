@@ -54,7 +54,7 @@ pipeline {
                  to: "m.nouman.qaiser0@gmail.com"
     }
     failure {
-        sleep 5 // Delay of 5 seconds
+        sleep 30 // Delay of 30 seconds
         emailext subject: "Pipeline Failed",
                  body: "The pipeline has failed. Please check the logs for details.",
                  to: "m.nouman.qaiser0@gmail.com"
